@@ -17,4 +17,16 @@ Initial steps
  - /etc/init.d/iptables start (add iptables exception for port 8080 and any others required)
  - ambari-server start
 
-Proceed with web setup from here...
+Ambari agents
+-------------
+ - provision EC2 instances for each Hadoop master & slave (CentOS 6)
+ - yum update
+ - yum install ntp
+ - curl -o ambari.repo http://public-repo-1.hortonworks.com/ambari/centos6/1.x/updates/1.6.1/ambari.repo && cp ambari.repo /etc/yum.repos.d && yum install ambari-agent
+ - sed -i "s/hostname=localhost/hostname=${SERVER_URL}/" /etc/ambari-agent/conf/ambari-agent.ini
+ - ambari-agent start
+ - chkconfig --level 2345 ntpd on
+ - service ntpd start
+ - service iptables stop (fix this)
+
+Proceed with Ambari web setup (port 8080) from here...
