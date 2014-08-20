@@ -5,6 +5,14 @@ Automated setup for Hortonworks Data Platform cluster
 
 I wanted to learn how to use Hadoop, and there are some great tutorials provided by Hortonworks (a company focused around open source Hadoop development).  Unfortunately my laptop isn't fast enough to run the Hortonworks Sandbox, which is a fairly hefty VM.  In order to participate in the tutorials, I decided to create a small Hadoop cluster on Amazon EC2.  Furthermore, I opted to automate the setup process for consistency and cost savings.  When setup effort becomes negligible there's no problem tearing the infrastructure down when the lesson is complete, which is much cheaper than leaving a multi-instance cluster running at all times.  It also leads to the possiblity of using more powerful servers, allowing faster data analysis and reduced waiting time.
 
+Single-node HDP cluster with Ambari & Hue
+-----------------------------------------
+ - Provision EC2 instance for Ambari
+    - AMI: CentOS 6
+    - Type: m3.large or greater
+    - Security policy: allow inbound on all TCP & UDP ports (0-65535) plus ICMP echo-reply
+ - SSH into machine, run shell script: hdp-single_node-ambari-hue.sh
+
 Initial steps
 -------------
  - provision EC2 instance for Ambari (CentOS 6)
